@@ -1,0 +1,51 @@
+using System;
+
+namespace ConsoleApplication71
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Kompleks k1 = new Kompleks(4,8);
+            Kompleks k2 = new Kompleks(-6, 27);
+            Kompleks k3 = new Kompleks(0, -52);
+            Kompleks k4 = new Kompleks(35, 0);
+            Kompleks k5 = new Kompleks(0, 0);
+
+            Kompleks c1 = new Kompleks();
+
+            k1.chop();
+            k2.chop();
+
+            c1.chop();
+            c1 = k1 + k2;
+            c1.chop();
+            c1 = k1 - k2;
+            c1.chop();
+            c1 = k1 * k2;
+            c1.chop();
+            c1 = k1 / k2;
+            c1.chop();
+
+            c1 = !k1;
+            c1.chop();
+            c1 = k1++;
+            c1.chop();
+
+            bool b = k1 == k2;
+            Console.WriteLine("b={0}",b);
+            b = k1 != k2;
+            Console.WriteLine("b={0}", b);
+            b = k1 > k2;
+            Console.WriteLine("b={0}", b);
+            b = k1 < k2;
+            Console.WriteLine("b={0}", b);
+         
+            //k3.chop();
+            //k4.chop();
+            //k5.chop();
+        }
+    }
+
+
+}

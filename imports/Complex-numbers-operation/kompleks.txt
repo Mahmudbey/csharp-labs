@@ -1,0 +1,164 @@
+using System;
+
+namespace ConsoleApplication71
+{
+    class Kompleks
+    {
+        public double haqiqiy; 
+        public double mavhum;
+
+        public Kompleks() { }
+        public Kompleks(double real, double imag)
+        {
+            this.haqiqiy = real;
+            this.mavhum = imag;
+        }
+        public double KMod()
+        {
+            double z = haqiqiy * haqiqiy + mavhum * mavhum;
+            return Math.Pow(z, 0.5);
+        }
+        public void chop()
+        {
+            char c=mavhum>0?'+':(mavhum<0?'-':'0');
+            string s = string.Format("{0}{1}{2}i"
+                ,haqiqiy,c,Math.Abs(mavhum));
+            if(haqiqiy!=0)
+            {
+                if(c!='0')
+                {
+                    Console.WriteLine(s);
+                }
+                else
+                {
+                    Console.WriteLine("{0}",haqiqiy);
+                }
+            }
+            else
+            {
+                if(c!='0')
+                {
+                    Console.WriteLine("{0}i",mavhum);
+                }
+                else //if(c==0)
+                {
+                    Console.WriteLine("0");
+                }
+            }
+        }
+        //binar
+        public static Kompleks operator +(Kompleks k1,
+            Kompleks k2)
+        {
+            Console.WriteLine("+");
+            Kompleks k = new Kompleks();
+            k.haqiqiy = k1.haqiqiy + k2.haqiqiy;
+            k.mavhum = k1.mavhum + k2.mavhum;
+            return k;
+        }
+        public static Kompleks operator -(Kompleks k1,
+            Kompleks k2)
+        {
+            Console.WriteLine("-");
+            Kompleks k = new Kompleks();
+            k.haqiqiy = k1.haqiqiy - k2.haqiqiy;
+            k.mavhum = k1.mavhum - k2.mavhum;
+            return k;
+        }
+        public static Kompleks operator *(Kompleks k1, 
+            Kompleks k2)
+        {
+            Console.WriteLine("*");
+            Kompleks k = new Kompleks();
+            k.haqiqiy = k1.haqiqiy*k2.haqiqiy -k1.mavhum* k2.mavhum;
+            k.mavhum = k1.mavhum*k2.haqiqiy + k1.haqiqiy*k2.mavhum;
+            return k;
+        }
+        public static Kompleks operator /(Kompleks k1, 
+            Kompleks k2)
+        {
+            Console.WriteLine("/");
+            Kompleks k = new Kompleks();
+            double maxraj = k2.KMod() * k2.KMod();
+            k.haqiqiy = (k1.haqiqiy * k2.haqiqiy + k1.mavhum * k2.mavhum)/maxraj;
+            k.mavhum = (k1.mavhum * k2.haqiqiy - k1.haqiqiy * k2.mavhum)/maxraj;
+            return k;
+        }
+        //binar mantiqiy
+        public static bool operator ==(Kompleks k1,
+            Kompleks k2)
+        {
+            Console.WriteLine("==");
+            return (k1.haqiqiy == k2.haqiqiy && 
+                k1.mavhum == k2.mavhum);
+        }
+        public static bool operator !=(Kompleks k1,
+            Kompleks k2)
+        {
+            Console.WriteLine("!=");
+            return !(k1 == k2);
+            //return !(k1.haqiqiy == k2.haqiqiy &&
+            //    k1.mavhum == k2.mavhum);
+           
+        }
+        public static bool operator >(Kompleks k1,
+            Kompleks k2)
+        {
+            Console.WriteLine(">");
+            return k1.KMod() > k2.KMod();
+        }
+        public static bool operator <(Kompleks k1,
+            Kompleks k2)
+        {
+            Console.WriteLine("<");
+            return k1.KMod() < k2.KMod();
+        }
+        //unar
+        public static Kompleks operator !(Kompleks k1)
+        {
+            Console.WriteLine("!");
+            Kompleks k = new Kompleks();
+            k.haqiqiy = k1.haqiqiy;
+            k.mavhum = -k1.mavhum;
+            return k;
+        }
+        public static Kompleks operator ++(Kompleks k1)
+        {
+            Console.WriteLine("++");
+            Kompleks k = new Kompleks();
+            k.haqiqiy =k1.haqiqiy++;
+            k.mavhum = k1.mavhum++;
+            return k;
+        }
+    }
+
+    class vektor
+    {
+        public int n;
+        public double[] arr;
+
+        public vektor() { }
+        public vektor(int N)
+        {
+            this.n = N;
+        }
+        public void toldir()
+        {
+            arr = new double[n];
+            Random r = new Random();
+
+            for(int i=0;i<arr.Length;i++)
+            {
+                arr[i] = r.Next(-10,11);
+                Console.Write(arr[i]+"\t");
+            }
+            Console.WriteLine();
+        }
+       /* public static vektor operator +(vektor v1,vektor v2)
+        {
+            vektor v = new vektor();
+            //v[i]=v1[i]+v2[i]
+
+        }*/
+    }
+}
