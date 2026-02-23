@@ -1,0 +1,16 @@
+using System;
+
+namespace qism_sinflar
+{
+   partial class Xodim
+    {
+        public string Tel { get; set; }
+       // public double Maosh { get; set; }
+
+        public void tel()
+        {
+            string s3 = string.Format("Telefon:\t{0}", Tel);
+            Console.WriteLine(s3);
+        }
+    }
+}
