@@ -1,0 +1,4 @@
+git status
+git add FolderName
+git commit -m "FolderName"
+git push

@@ -1,0 +1,5 @@
+git status
+
+git commit -m "Add MyFolderName"
+
+git push

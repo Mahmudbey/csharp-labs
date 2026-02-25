@@ -1,0 +1,47 @@
+﻿using System;
+
+namespace qism_sinflar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Xodim x1 = new Xodim();
+            x1.Fam = "Azizov";
+            x1.Ism = "Botir";
+            x1.Yosh = 35;
+            x1.Lavozim = "O'qituvchi";
+            x1.Maosh = 4950000;
+            x1.Tel = "+998 93 123 45 67";
+            x1.FIY();
+            x1.LM();
+            x1.tel();
+        }
+    }
+
+    partial class Xodim
+    {
+        public string Fam { get; set; }
+        public string Ism { get; set; }
+        public int Yosh { get; set; }
+
+        public void FIY()
+        {
+            string s1 = string.Format("\nFamiliya:\t{0}\nIsm:\t{1}\nYosh:\t{2}"
+                ,Fam,Ism,Yosh);
+            Console.WriteLine(s1);
+        }
+    }
+    partial class Xodim
+    {
+        public string Lavozim { get; set; }
+        public double Maosh { get; set; }
+
+        public void LM()
+        {
+            string s2 = string.Format("Lavozim:\t{0}\nMaosh:\t{1}"
+                , Lavozim, Maosh);
+            Console.WriteLine(s2);
+        }
+    }
+}
