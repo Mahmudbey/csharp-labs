@@ -1,0 +1,107 @@
+﻿using System;
+
+namespace Task1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("\nson=");
+                double s = double.Parse(Console.ReadLine());
+                // FLOAT_PRINT f1 = new FLOAT_PRINT(4.758);
+                //f1.chop();
+                FLOAT_PRINT2 f2 = new FLOAT_PRINT2(s);
+                //f2.chop();
+                f2.Ikkilik();
+            }
+        }
+    }
+    class FLOAT_PRINT
+    {
+        public double son { get; set; }
+        public FLOAT_PRINT() { }
+        public FLOAT_PRINT(double d)
+        {
+            son = d;
+            Console.WriteLine(son);
+        }
+
+        public int p()
+        {
+            int butun = (int)son;
+
+            int k = 0;
+            while (butun > 0)
+            {
+                butun = butun / 10;
+                k++;
+            }
+            return k;
+        }
+        public double m()
+        {
+            decimal kasr = (decimal)(son - (int)son);
+            int hisoblagich = 0;
+            while (kasr > 0 && kasr < 1)
+            {
+                kasr = kasr * 10 - (int)(kasr * 10);
+                hisoblagich++;
+               // Console.WriteLine("hisob={0}\nkasr={1}", hisoblagich, kasr);
+            }
+            return hisoblagich;
+        }
+        public void chop()
+        {
+            Console.WriteLine("Butun qismi pozitsiyasi:\t{0}\nKasr qismidagi raqamlar soni:\t{1}", p(), m());
+        }
+
+    }
+    class FLOAT_PRINT2 : FLOAT_PRINT
+    {
+        public FLOAT_PRINT2(double Son)
+        {
+            son = Son;
+        }
+        public void Ikkilik()
+        {
+            //butun qismini o'girish
+            string butun = Convert.ToString((int)son, 2);
+
+            //kasr qismini o'girish
+            double eps = 0.001;//aniqlik darajasi
+            decimal kasr =( decimal)(son - (int)son);
+            decimal s1 = 0;
+            string s2 = "";
+            double kasr_doub = 0;
+
+            for (int i = 1; i < 1000; i++)
+            {
+                if (!(Math.Abs((double)(kasr- s1))< eps))
+                {
+                    kasr_doub = (double)kasr;
+                    double d = Math.Pow(2, -i);
+                    if (d <= kasr_doub && kasr_doub < 2 * d)
+                    {
+                        s1 = kasr;
+                        kasr =kasr -(decimal)d;
+                        s2 += "1";                       
+                    }
+                    else
+                    {
+                        if (kasr > 0)
+                        {
+                            s2 += "0";
+                        }
+                    }
+                }
+               else break;
+            }
+            string toliq = string.Format("{0}.{1}",butun,s2);
+            Console.WriteLine("Ikkilik sanoq sistemasida:\t{0}_(10)={1}_(2)\n{1}",son,toliq);
+        }
+    }
+
+    /*8 lik va 16 lik sanoq sistemasini o'zingiz davom ettiring*/
+}

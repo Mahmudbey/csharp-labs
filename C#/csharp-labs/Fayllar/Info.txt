@@ -1,0 +1,52 @@
+Host Name:                 MAKHMUD
+OS Name:                   Microsoft Windows 11 Pro
+OS Version:                10.0.22631 N/A Build 22631
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          maxmudbey@hotmail.com
+Registered Organization:
+Product ID:                00330-80000-00000-AA498
+Original Install Date:     10/18/2024, 1:00:40 AM
+System Boot Time:          11/13/2024, 7:38:16 PM
+System Manufacturer:       Micro-Star International Co., Ltd.
+System Model:              Katana GF76 11UD
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: Intel64 Family 6 Model 141 Stepping 1 GenuineIntel ~2304 Mhz
+BIOS Version:              American Megatrends International, LLC. E17L2IMS.319, 7/27/2023
+Windows Directory:         C:\Windows
+System Directory:          C:\Windows\system32
+Boot Device:               \Device\HarddiskVolume1
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC+05:00) Ashgabat, Tashkent
+Total Physical Memory:     16,086 MB
+Available Physical Memory: 2,984 MB
+Virtual Memory: Max Size:  24,278 MB
+Virtual Memory: Available: 9,394 MB
+Virtual Memory: In Use:    14,884 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              \\MAKHMUD
+Hotfix(s):                 5 Hotfix(s) Installed.
+                           [01]: KB5045935
+                           [02]: KB5027397
+                           [03]: KB5041655
+                           [04]: KB5046633
+                           [05]: KB5044620
+Network Card(s):           3 NIC(s) Installed.
+                           [01]: Intel(R) Wi-Fi 6 AX201 160MHz
+                                 Connection Name: Wi-Fi
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     192.168.0.1
+                                 IP address(es)
+                                 [01]: 192.168.0.103
+                                 [02]: fe80::c383:aa8b:678:cc33
+                           [02]: Realtek PCIe GbE Family Controller
+                                 Connection Name: Ethernet
+                                 Status:          Media disconnected
+                           [03]: Corechip SR9900 USB2.0 to Fast Ethernet Adapter
+                                 Connection Name: Ethernet 2
+                                 Status:          Media disconnected
+Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.

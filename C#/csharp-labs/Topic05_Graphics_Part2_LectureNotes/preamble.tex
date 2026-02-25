@@ -1,0 +1,75 @@
+% =========================================================
+% PREAMBULA: Topic 05 — Graphics II (Lecture Notes) — pdfLaTeX
+% =========================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\KOMAoptions{DIV=11,parskip=half,headings=normal}
+
+\usepackage[english]{babel}
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb,mathtools}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{placeins}
+
+\usepackage{tikz}
+\usetikzlibrary{
+  calc, intersections, through,
+  angles, quotes,
+  arrows.meta, positioning, patterns,
+  decorations.pathmorphing, decorations.markings, decorations.pathreplacing,
+  shapes.geometric, fit, matrix
+}
+\usepackage{tikz-3dplot}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{fillbetween,groupplots,statistics}
+
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\setchemfig{atom sep=2.0em, bond style={line width=0.6pt}}
+
+\usepackage{tikz-cd}
+
+\usepackage{array,booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\usepackage{listings}
+\lstset{
+  language=[LaTeX]TeX,
+  basicstyle=\ttfamily\scriptsize,
+  columns=fullflexible,
+  breaklines=true,
+  keepspaces=true,
+  showstringspaces=false
+}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+
+\usepackage{caption}
+\providecommand{\figurename}{Figure}
+\providecommand{\tablename}{Table}
+\addto\captionsenglish{%
+  \renewcommand{\figurename}{Rasm}%
+  \renewcommand{\tablename}{Jadval}%
+}
+
+\tikzset{>=Latex, line cap=round, line join=round}
+
+% Feynman-like primitive styles (manual; pdfLaTeX-safe)
+\tikzset{
+  fermion/.style={->, thick},
+  antifermion/.style={<-, thick},
+  scalar/.style={thick},
+  photon/.style={decorate, decoration={snake, amplitude=2.2pt, segment length=7pt}, thick},
+  gluon/.style={decorate, decoration={coil, aspect=0, amplitude=3pt, segment length=4pt}, thick},
+  vertex/.style={circle, fill=black, inner sep=1.2pt}
+}
+
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}

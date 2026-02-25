@@ -1,0 +1,102 @@
+% =========================================================
+% pdfLaTeX + KOMA (scrbook) + Uzbek captions (Rasm/Jadval)
+% =========================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\KOMAoptions{DIV=11,parskip=half,headings=normal}
+\usepackage[english]{babel} % pdfLaTeX-friendly; captions overridden to Uzbek below
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{float}      % for [H]
+\usepackage{placeins}   % \FloatBarrier
+\usepackage{enumitem}   % nice lists
+
+\usepackage{array,booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% ---------- TikZ / PGF ----------
+\usepackage{tikz}
+\usetikzlibrary{
+  calc, intersections, through,
+  angles, quotes,
+  arrows.meta, positioning, patterns,
+  decorations.pathmorphing, decorations.markings, decorations.pathreplacing,
+  shapes.geometric, fit, matrix
+}
+\usepackage{tikz-3dplot}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{fillbetween,groupplots,statistics}
+
+% ---------- Chemistry / diagrams ----------
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\setchemfig{atom sep=2.0em, bond style={line width=0.6pt}}
+\usepackage{tikz-cd}
+
+% ---------- Code listing ----------
+\usepackage{listings}
+\lstset{
+  language=[LaTeX]TeX,
+  basicstyle=\ttfamily\scriptsize,
+  columns=fullflexible,
+  breaklines=true,
+  keepspaces=true,
+  showstringspaces=false
+}
+
+% ---------- Links / refs ----------
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+
+% ---------- Captions in Uzbek ----------
+\usepackage{caption}
+\providecommand{\figurename}{Figure}
+\providecommand{\tablename}{Table}
+\addto\captionsenglish{%
+  \renewcommand{\figurename}{Rasm}%
+  \renewcommand{\tablename}{Jadval}%
+}
+
+% ---------- Styles ----------
+\tikzset{>=Latex, line cap=round, line join=round}
+
+% Feynman-like primitive styles (manual; pdfLaTeX-safe)
+\tikzset{
+  fermion/.style={->, thick},
+  antifermion/.style={<-, thick},
+  scalar/.style={thick},
+  photon/.style={decorate, decoration={snake, amplitude=2.2pt, segment length=7pt}, thick},
+  gluon/.style={decorate, decoration={coil, aspect=0, amplitude=3pt, segment length=4pt}, thick},
+  vertex/.style={circle, fill=black, inner sep=1.2pt}
+}
+
+% =========================================================
+% Code ↔ Output side-by-side (Runaway argument bermaydi!)
+% Usage:
+%   \CodeOutBegin ...listing... \CodeOutMid ...output... \CodeOutEnd
+%   \caption{...}\label{...}
+%   \CodeOutFigureEnd
+% =========================================================
+\newcommand{\CodeOutHeader}[1]{\noindent\textbf{#1}\par\smallskip}
+\newcommand{\CodeOutBegin}{%
+\begin{figure}[H]\centering
+\begin{minipage}{0.56\linewidth}
+\CodeOutHeader{Kod}
+\begin{lstlisting}}
+\newcommand{\CodeOutMid}{%
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}{0.40\linewidth}\centering
+\CodeOutHeader{Natija}}
+\newcommand{\CodeOutEnd}{%
+\end{minipage}}
+\newcommand{\CodeOutFigureEnd}{%
+\end{figure}\FloatBarrier\clearpage}
+
